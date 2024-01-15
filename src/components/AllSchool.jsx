@@ -23,9 +23,8 @@ export default function AllSchoool() {
     try {
       const config = {
         headers: {
-          Authorization: `Bearer ${
-            JSON.parse(localStorage.getItem("adminLogin"))?.token
-          }`,
+          Authorization: `Bearer ${JSON.parse(localStorage.getItem("adminLogin"))?.token
+            }`,
         },
       };
       axios
@@ -43,7 +42,7 @@ export default function AllSchoool() {
 
   const handleUpdateSchool = () => {
     try {
-    } catch (error) {}
+    } catch (error) { }
   };
 
   // handleDelete user
@@ -52,9 +51,8 @@ export default function AllSchoool() {
     try {
       const config = {
         headers: {
-          Authorization: `Bearer ${
-            JSON.parse(localStorage.getItem("adminLogin"))?.token
-          }`,
+          Authorization: `Bearer ${JSON.parse(localStorage.getItem("adminLogin"))?.token
+            }`,
         },
       };
       axios
