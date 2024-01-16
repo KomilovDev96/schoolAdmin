@@ -52,3 +52,17 @@ export const menu = [
     //     icons: icons.logout
     // },
 ]
+
+export const week = ["Hafta kunini kirting " , "Dushanba", "Seshanba", "Chorshanba", "Juma", "Shanba"];
+export const times = [
+  "1-para",
+  "2-para",
+  "3-para",
+  "4-para",
+  "5-para",
+  "6-para",
+  "7-para",
+  "8-para",
+  "9-para",
+  "10-para",
+];

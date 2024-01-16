@@ -23,13 +23,15 @@ export default function AllSchoool() {
     try {
       const config = {
         headers: {
-          Authorization: `Bearer ${JSON.parse(localStorage.getItem("adminLogin"))?.token
-            }`,
+          Authorization: `Bearer ${
+            JSON.parse(localStorage.getItem("adminLogin"))?.token
+          }`,
         },
       };
       axios
-        .get(`${process.env.REACT_APP_BASE_URL}/scool/getall`, config)
+        .get(`${process.env.REACT_APP_BASE_URL}/school/getall`, config)
         .then((data) => {
+          console.log(data)
           setData(data.data);
         })
         .catch((err) => console.log("xatolik yuz berdi"));
@@ -42,7 +44,7 @@ export default function AllSchoool() {
 
   const handleUpdateSchool = () => {
     try {
-    } catch (error) { }
+    } catch (error) {}
   };
 
   // handleDelete user
@@ -51,8 +53,9 @@ export default function AllSchoool() {
     try {
       const config = {
         headers: {
-          Authorization: `Bearer ${JSON.parse(localStorage.getItem("adminLogin"))?.token
-            }`,
+          Authorization: `Bearer ${
+            JSON.parse(localStorage.getItem("adminLogin"))?.token
+          }`,
         },
       };
       axios
@@ -104,31 +107,31 @@ export default function AllSchoool() {
                               : value + 1}
                           </td>
                           <td
-                            onClick={() => navigate(`/allClass/${element._id}`)}
+                            onClick={() => navigate(`/allClass/${element?._id}`)}
                             class="whitespace-nowrap px-6 py-4"
                           >
-                            {element.title}
+                            {element?.name}
                           </td>
                           <td class="whitespace-nowrap px-6 py-4">
-                            {element.user.username}
+                            {element?.userID?.username}
                           </td>
 
                           <td class="whitespace-nowrap px-6 py-4">
                             <button
-                              onClick={() => handleDeleteSchool(element._id)}
+                              onClick={() => handleDeleteSchool(element?._id)}
                               className="px-[20px] py-[5px] bg-red-600 text-white rounded-[3px]"
                             >
                               Ochirish
                             </button>
                             <button
-                              onClick={() => handleUpdateSchool()}
+                              onClick={() => navigate(`/updateClass/${element?._id}`)}
                               className="px-[20px] ml-[5px] py-[5px] bg-green-600 text-white rounded-[3px]"
                             >
                               Yangilash
                             </button>
                             <button
                               onClick={() =>
-                                navigate(`/addClass/${element._id}`)
+                                navigate(`/addClass/${element?._id}`)
                               }
                               className="px-[20px] ml-[5px] py-[5px] bg-green-600 text-white rounded-[3px]"
                             >

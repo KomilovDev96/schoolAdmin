@@ -40,6 +40,7 @@ export default function AddUser() {
           config
         )
         .then((data) => {
+          console.log(data)
           setShowUser(true);
         })
         .catch((err) => console.log(err));
@@ -81,7 +82,7 @@ export default function AddUser() {
           </p>
 
           <button className="lg:mt-[30px] mt-[15px] py-[18px] w-full text-white text-[20px] font-bold bg-Fpurple rounded-[10px]">
-            All User
+            Foydalanuvchi qo'shish
           </button>
         </div>
       </form>

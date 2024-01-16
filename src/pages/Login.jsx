@@ -10,31 +10,18 @@ export default function Login() {
   const {
     black,
     setBlack,
-    bars,
-    setbars,
-    search,
-    setsearch,
-    checkbox,
-    setcheckbox,
+ 
   } = useContext(Contexts);
   const [password, setPassword] = useState(true);
   const [name, setName] = useState("");
   const [pass, setPass] = useState("");
   const navigate = useNavigate();
-  console.log(process.env.REACT_APP_BASE_URL);
+  // console.log(process.env.REACT_APP_BASE_URL);
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    try {
-      //  await axios
-      //     .post(`${process.env.REACT_APP_BASE_URL}/api/admin/login`, {
-      //       email: 'alex@mail.ru',
-      //       password: "12345678",
-      //     })
-      //     .then((response) => console.log(response))
-      //     .catch((err) => console.log(err));
-
+    try { 
       await axios
         .post(`${process.env.REACT_APP_BASE_URL}/auth/login`, {
           username: name,
@@ -85,11 +72,11 @@ export default function Login() {
           action=""
           className="bg-white rounded-[10px] p-[20px] lg:mb-[24px] mb-[10px]"
         >
-          <h2>Email</h2>
+          <h2>Username</h2>
           <input
             onChange={(e) => setName(e.target.value)}
             type="text"
-            placeholder="enter your email adress"
+            placeholder="enter your username"
             className="px-[20px] py-[16px] rounded-[10px] w-full mt-[15px] mb-[15px] border-solid border-2 border-Fbl"
           />
           <h2>Password</h2>

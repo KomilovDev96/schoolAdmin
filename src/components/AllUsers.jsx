@@ -8,9 +8,10 @@ export default function AllUsers() {
   const [deleteUser , setDeleteUser] = useState('')
 
   const navigate = useNavigate()
+
+
   // get all user
 
- 
   useEffect(() => {
     try {
       const config = {
@@ -24,6 +25,8 @@ export default function AllUsers() {
           config
         )
         .then((data) => {
+          console.log(data)
+
           setData(data.data)
         })
         .catch((err) => console.log('xatolik yuz berdi'));
@@ -43,8 +46,7 @@ export default function AllUsers() {
       ...Array(Math.ceil(data.length / cardProductCount) + 1).keys(),
     ].slice(1);
 
-console.log(res)
-  // handleUpdate user
+   // handleUpdate user
 
   const handleUpdateUser = (id) => {
     navigate(`/updateUser/${id}`)

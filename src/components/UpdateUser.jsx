@@ -11,13 +11,13 @@ export default function UpdateUser() {
   const { black, setShowUser } = useContext(Contexts);
   const [password, setPassword] = useState(true);
   const [pass, setPass] = useState("");
-  const [email, setEmail] = useState("");
   const [data, setData] = useState({});
-  const [name, setName] = useState(data?.username);
+  const [name, setName] = useState("");
   const [error, setError] = useState(false);
 
   const navigate = useNavigate();
   const id = useParams();
+ 
 
   useEffect(() => {
     try {
@@ -34,10 +34,18 @@ export default function UpdateUser() {
           setData(data.data?.find((element, value) => element._id === id.id));
         })
         .catch((err) => console.log("xatolik yuz berdi"));
-    } catch (error) {
+
+     } catch (error) {
       console.log("xatolik yuz berdi");
     }
+
+   
   }, []);
+
+
+  useEffect(() => {
+    data && setName(data.username)
+  } , [data])
 
   const handleUpdateUser = (e) => {
     e.preventDefault();
@@ -75,7 +83,7 @@ export default function UpdateUser() {
       }
     >
       <Aside />
-      <div>
+      <div className="w-full">
         <Navbar />
         <form
           onSubmit={(e) => handleUpdateUser(e)}
